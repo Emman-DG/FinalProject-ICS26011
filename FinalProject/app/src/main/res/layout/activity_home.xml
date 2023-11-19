@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2E335A"
+    tools:context=".Home">
+
+    <ImageButton
+        android:id="@+id/imgbtnMv1"
+        android:layout_width="69dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        android:src="@drawable/deadpool"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtWatched"
+        app:layout_constraintVertical_bias="0.0"
+        android:onClick="navigateToMain"/>
+
+    <ImageView
+        android:id="@+id/imgMv1"
+        android:layout_width="265dp"
+        android:layout_height="262dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.124"
+        app:srcCompat="@drawable/oppenheimer"
+        android:onClick="navigateToMain" />
+
+    <TextView
+        android:id="@+id/txtWatched"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:text="WATCHED"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgMv1"
+        app:layout_constraintVertical_bias="0.0"
+        android:onClick="navigateToMain" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="RECOMMENDED"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnMv1"
+        app:layout_constraintVertical_bias="0.0"
+        android:onClick="navigateToMain" />
+
+    <ImageButton
+        android:id="@+id/imgbtnMv2"
+        android:layout_width="69dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnMv1"
+        app:layout_constraintTop_toBottomOf="@+id/imgMv1"
+        app:layout_constraintVertical_bias="0.716"
+        app:srcCompat="@drawable/joker"
+        android:onClick="navigateToMain" />
+
+    <ImageButton
+        android:id="@+id/imgbtnMv3"
+        android:layout_width="69dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnMv2"
+        app:layout_constraintTop_toBottomOf="@+id/imgMv1"
+        app:layout_constraintVertical_bias="0.716"
+        app:srcCompat="@drawable/thelastofus"
+        android:onClick="navigateToMain" />
+
+    <ImageButton
+        android:id="@+id/imgbtnMv4"
+        android:layout_width="69dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnMv3"
+        app:layout_constraintTop_toBottomOf="@+id/imgMv1"
+        app:layout_constraintVertical_bias="0.716"
+        app:srcCompat="@drawable/thedarkknight"
+        android:onClick="navigateToMain" />
+
+    <ImageButton
+        android:id="@+id/imgbtnMv5"
+        android:layout_width="69dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/joker"
+        android:onClick="navigateToMain" />
+
+    <ImageButton
+        android:id="@+id/imgbtnMv6"
+        android:layout_width="69dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnMv5"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/thedarkknight"
+        android:onClick="navigateToMain" />
+
+    <ImageButton
+        android:id="@+id/imgbtnMv7"
+        android:layout_width="69dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnMv6"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/deadpool"
+        android:onClick="navigateToMain" />
+
+    <ImageButton
+        android:id="@+id/imgbtnMv8"
+        android:layout_width="69dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnMv7"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/thelastofus"
+        android:onClick="navigateToMain" />
+
+    <ImageButton
+        android:id="@+id/btnIcon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="80dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toEndOf="@+id/btnSearch"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnMv8"
+        app:layout_constraintVertical_bias="0.588"
+        app:srcCompat="@drawable/icon" />
+
+    <ImageButton
+        android:id="@+id/btnHome"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="80dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSearch"
+        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnMv5"
+        app:layout_constraintVertical_bias="0.592"
+        app:srcCompat="@drawable/baseline_home_24" />
+
+    <ImageButton
+        android:id="@+id/btnSearch"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnMv7"
+        app:layout_constraintVertical_bias="0.572"
+        app:srcCompat="@drawable/baseline_search_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
