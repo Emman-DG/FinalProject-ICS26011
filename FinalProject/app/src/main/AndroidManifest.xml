@@ -13,6 +13,39 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Search"
+            android:exported="false" />
+        <activity
+            android:name=".Mv9"
+            android:exported="false" />
+        <activity
+            android:name=".Mv8"
+            android:exported="false" />
+        <activity
+            android:name=".Mv7"
+            android:exported="false" />
+        <activity
+            android:name=".Mv6"
+            android:exported="false" />
+        <activity
+            android:name=".Mv5"
+            android:exported="false" />
+        <activity
+            android:name=".Mv4"
+            android:exported="false" />
+        <activity
+            android:name=".Mv3"
+            android:exported="false" />
+        <activity
+            android:name=".Mv2"
+            android:exported="false" />
+        <activity
+            android:name=".Mv1"
+            android:exported="false" />
+        <activity
             android:name=".Home"
             android:exported="false" />
         <activity

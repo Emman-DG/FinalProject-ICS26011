@@ -8,7 +8,7 @@
     tools:context=".Home">
 
     <ImageButton
-        android:id="@+id/imgbtnMv1"
+        android:id="@+id/imgbtnMv2"
         android:layout_width="69dp"
         android:layout_height="100dp"
         android:layout_marginTop="8dp"
@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtWatched"
         app:layout_constraintVertical_bias="0.0"
-        android:onClick="navigateToMain"/>
+        android:onClick="navigateToMv2"/>
 
     <ImageView
         android:id="@+id/imgMv1"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.124"
         app:srcCompat="@drawable/oppenheimer"
-        android:onClick="navigateToMain" />
+        android:onClick="navigateToMv1" />
 
     <TextView
         android:id="@+id/txtWatched"
@@ -49,8 +49,7 @@
         app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgMv1"
-        app:layout_constraintVertical_bias="0.0"
-        android:onClick="navigateToMain" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView2"
@@ -64,25 +63,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtnMv1"
-        app:layout_constraintVertical_bias="0.0"
-        android:onClick="navigateToMain" />
-
-    <ImageButton
-        android:id="@+id/imgbtnMv2"
-        android:layout_width="69dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="15dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnMv1"
-        app:layout_constraintTop_toBottomOf="@+id/imgMv1"
-        app:layout_constraintVertical_bias="0.716"
-        app:srcCompat="@drawable/joker"
-        android:onClick="navigateToMain" />
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnMv2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/imgbtnMv3"
@@ -97,11 +79,27 @@
         app:layout_constraintStart_toEndOf="@+id/imgbtnMv2"
         app:layout_constraintTop_toBottomOf="@+id/imgMv1"
         app:layout_constraintVertical_bias="0.716"
-        app:srcCompat="@drawable/thelastofus"
-        android:onClick="navigateToMain" />
+        app:srcCompat="@drawable/joker"
+        android:onClick="navigateToMv3" />
 
     <ImageButton
         android:id="@+id/imgbtnMv4"
+        android:layout_width="69dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnMv3"
+        app:layout_constraintTop_toBottomOf="@+id/imgMv1"
+        app:layout_constraintVertical_bias="0.716"
+        app:srcCompat="@drawable/thelastofus"
+        android:onClick="navigateToMv4" />
+
+    <ImageButton
+        android:id="@+id/imgbtnMv5"
         android:layout_width="69dp"
         android:layout_height="100dp"
         android:layout_marginStart="15dp"
@@ -110,14 +108,14 @@
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnMv3"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnMv4"
         app:layout_constraintTop_toBottomOf="@+id/imgMv1"
         app:layout_constraintVertical_bias="0.716"
         app:srcCompat="@drawable/thedarkknight"
-        android:onClick="navigateToMain" />
+        android:onClick="navigateToMv5" />
 
     <ImageButton
-        android:id="@+id/imgbtnMv5"
+        android:id="@+id/imgbtnMv6"
         android:layout_width="69dp"
         android:layout_height="100dp"
         android:layout_marginStart="15dp"
@@ -130,25 +128,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/joker"
-        android:onClick="navigateToMain" />
-
-    <ImageButton
-        android:id="@+id/imgbtnMv6"
-        android:layout_width="69dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
-        android:scaleType="fitCenter"
-        android:background="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnMv5"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/thedarkknight"
-        android:onClick="navigateToMain" />
+        app:srcCompat="@drawable/thedictator"
+        android:onClick="navigateToMv6" />
 
     <ImageButton
         android:id="@+id/imgbtnMv7"
@@ -164,8 +145,8 @@
         app:layout_constraintStart_toEndOf="@+id/imgbtnMv6"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/deadpool"
-        android:onClick="navigateToMain" />
+        app:srcCompat="@drawable/thepurge"
+        android:onClick="navigateToMv7" />
 
     <ImageButton
         android:id="@+id/imgbtnMv8"
@@ -181,36 +162,53 @@
         app:layout_constraintStart_toEndOf="@+id/imgbtnMv7"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/thelastofus"
-        android:onClick="navigateToMain" />
+        app:srcCompat="@drawable/sausageparty"
+        android:onClick="navigateToMv8" />
+
+    <ImageButton
+        android:id="@+id/imgbtnMv9"
+        android:layout_width="69dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnMv8"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/theupside"
+        android:onClick="navigateToMv9" />
 
     <ImageButton
         android:id="@+id/btnIcon"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginStart="80dp"
         android:background="@null"
+        android:onClick="navigateToProfile"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.109"
-        app:layout_constraintStart_toEndOf="@+id/btnSearch"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtnMv8"
-        app:layout_constraintVertical_bias="0.588"
+        app:layout_constraintHorizontal_bias="0.819"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944"
         app:srcCompat="@drawable/icon" />
 
     <ImageButton
         android:id="@+id/btnHome"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginEnd="80dp"
         android:background="@null"
+        android:onClick="navigateToHome"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnSearch"
-        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.174"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtnMv5"
-        app:layout_constraintVertical_bias="0.592"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944"
         app:srcCompat="@drawable/baseline_home_24" />
 
     <ImageButton
@@ -218,12 +216,13 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:background="@null"
+        android:onClick="navigateToSearch"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtnMv7"
-        app:layout_constraintVertical_bias="0.572"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944"
         app:srcCompat="@drawable/baseline_search_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
