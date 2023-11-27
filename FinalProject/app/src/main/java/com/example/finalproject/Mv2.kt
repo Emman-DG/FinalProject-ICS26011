@@ -1,14 +1,26 @@
 package com.example.finalproject
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.MediaController
+import android.widget.VideoView
 
 class Mv2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mv2)
+
+        //Trailer
+        val videoView = findViewById<VideoView>(R.id.Mv2)
+        val packageName = "android.resource://" + getPackageName() + "/" + R.raw.deadpool
+        val uri = Uri.parse(packageName)
+        videoView.setVideoURI(uri)
+
+        val mediaController = MediaController(this)
+        videoView.setMediaController(mediaController)
     }
     //Home
     fun navigateToHome(view: View) {
