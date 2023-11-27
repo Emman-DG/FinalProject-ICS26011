@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "244202036963",
+    "project_id": "databasemoviebounty",
+    "storage_bucket": "databasemoviebounty.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244202036963:android:9c3efc9fa0df6242286fd6",
+        "android_client_info": {
+          "package_name": "com.example.finalproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGL_ZhxR9pIeMvImPeaqrfOrY2se7uUhg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

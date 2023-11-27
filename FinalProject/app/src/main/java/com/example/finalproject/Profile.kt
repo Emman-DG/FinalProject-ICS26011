@@ -4,11 +4,28 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 
 class Profile : AppCompatActivity() {
+    lateinit var LogOut : Button;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+
+        LogOut = findViewById(R.id.button)
+        LogOut.setOnClickListener{
+            FirebaseAuth.getInstance().signOut()
+            Toast.makeText(
+                baseContext,
+                "Logged Out",
+                Toast.LENGTH_SHORT,
+            ).show()
+            val intent = Intent(this, MainActivity::class.java);
+            startActivity(intent)
+
+        }
     }
 
     //Main
@@ -17,10 +34,7 @@ class Profile : AppCompatActivity() {
         startActivity(intent)
     }
     //Home
-    fun navigateToHome(view: View) {
-        val intent = Intent(this, Home::class.java);
-        startActivity(intent)
-    }
+
     //Search
     fun navigateToSearch(view: View) {
         val intent = Intent(this, Search::class.java);

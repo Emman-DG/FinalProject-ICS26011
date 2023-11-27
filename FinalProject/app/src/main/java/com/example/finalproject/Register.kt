@@ -14,14 +14,18 @@ import androidx.constraintlayout.helper.widget.MotionEffect.TAG
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import kotlin.system.exitProcess
 
-class MainActivity : AppCompatActivity() {
+class Register : AppCompatActivity() {
+
     lateinit var editEmail : EditText;
     lateinit var editPassword : EditText;
+    lateinit var editUsername : EditText;
+    lateinit var regBut : Button;
+    lateinit var ProfIcon : Button;
     private lateinit var auth: FirebaseAuth;
     lateinit var progressBar : ProgressBar;
-    lateinit var regBut : Button;
-    lateinit var LoginBut : Button;
+    lateinit var BackBut : ImageButton;
 
     public override fun onStart() {
         super.onStart()
@@ -33,70 +37,71 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        setContentView(R.layout.activity_register)
         auth = Firebase.auth
-        editEmail = findViewById(R.id.edtEmail)
-        editPassword = findViewById(R.id.edtPassword)
-        regBut = findViewById(R.id.btnRegister)
-        progressBar = findViewById(R.id.progressBar2)
-        LoginBut = findViewById(R.id.btnLogin)
+        editEmail = findViewById(R.id.edtEmailR)
+        editUsername = findViewById(R.id.editUsernameR)
+        editPassword = findViewById(R.id.edtPasswordR)
+        regBut = findViewById(R.id.btnRegisterR)
+        ProfIcon = findViewById(R.id.btnBrowse)
+        progressBar = findViewById(R.id.progressBar)
+        BackBut = findViewById(R.id.BackButton)
 
-        regBut.setOnClickListener{
-            val intent = Intent(this, Register::class.java);
+        BackBut.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
-        LoginBut.setOnClickListener{
+
+
+
+        regBut.setOnClickListener{
             progressBar.visibility = View.VISIBLE
             val email = editEmail.text.toString()
             val password = editPassword.text.toString()
 
             if (email.isEmpty()) {
                 progressBar.visibility = View.GONE
-                Toast.makeText(this, "Enter email", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@Register, "Enter email", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             if (password.isEmpty()) {
                 progressBar.visibility = View.GONE
-                Toast.makeText(this, "Enter password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@Register, "Enter password", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            auth.signInWithEmailAndPassword(email, password)
+            auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     progressBar.visibility = View.GONE
                     if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "createUserWithEmail:success")
                         Toast.makeText(
                             baseContext,
-                            "Login Succesful",
+                            "Account Created",
                             Toast.LENGTH_SHORT,
                         ).show()
-                        val intent = Intent(this, Profile::class.java);
+                        val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                         finish()
 
-
                     } else {
                         // If sign in fails, display a message to the user.
+                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
                         Toast.makeText(
                             baseContext,
                             "Authentication failed.",
                             Toast.LENGTH_SHORT,
                         ).show()
-                        Log.e(TAG, "whyCantLogin")
 
                     }
                 }
         }
+
     }
-
-
-    /**fun navigateToHome(view: View) {
-        val intent = Intent(this, Home::class.java);
-        startActivity(intent)
-    }**/
 }
