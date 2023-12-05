@@ -48,23 +48,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.944"
-        app:srcCompat="@drawable/icon" />
+        app:srcCompat="@drawable/baseline_person_pin_24" />
 
     <ImageView
-        android:id="@+id/imageView49"
-        android:layout_width="325dp"
-        android:layout_height="45dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.698"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04"
-        app:srcCompat="@drawable/rectangle" />
-
-    <ImageView
-        android:id="@+id/imageView59"
+        android:id="@+id/searchButton"
         android:layout_width="50dp"
         android:layout_height="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,12 +63,14 @@
         app:srcCompat="@drawable/baseline_search_24" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/searchNameMovie"
         android:layout_width="250dp"
         android:layout_height="58dp"
+        android:background="@drawable/rounded_edge"
+        android:backgroundTint="#FFFEFE"
         android:ems="10"
+        android:hint="Search a movie or series"
         android:inputType="text"
-        android:text="Movies"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.538"
@@ -89,148 +78,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.035" />
 
-    <ImageButton
-        android:id="@+id/imageButton41"
-        android:layout_width="100dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:onClick="navigateToMv2"
-        android:scaleType="fitCenter"
-        android:src="@drawable/deadpool"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchRecyclerView"
+        android:layout_width="372dp"
+        android:layout_height="599dp"
+        android:background="@drawable/rounded_edge2"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton11"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.221" />
-
-    <ImageView
-        android:id="@+id/imageView63"
-        android:layout_width="100dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:onClick="navigateToMv6"
-        android:scaleType="fitCenter"
-        android:src="@drawable/thedictator"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.221" />
-
-    <ImageView
-        android:id="@+id/imageView64"
-        android:layout_width="100dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:onClick="navigateToMv1"
-        android:scaleType="fitCenter"
-        android:src="@drawable/oppenheimer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.88"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.221" />
-
-    <ImageView
-        android:id="@+id/imageView65"
-        android:layout_width="100dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:onClick="navigateToMv3"
-        android:scaleType="fitCenter"
-        android:src="@drawable/joker"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
-
-    <ImageView
-        android:id="@+id/imageView66"
-        android:layout_width="100dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:onClick="navigateToMv8"
-        android:scaleType="fitCenter"
-        android:src="@drawable/sausageparty"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
-
-    <ImageView
-        android:id="@+id/imageView67"
-        android:layout_width="100dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:onClick="navigateToMv5"
-        android:scaleType="fitCenter"
-        android:src="@drawable/thedarkknight"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.88"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
-
-    <ImageView
-        android:id="@+id/imageView68"
-        android:layout_width="100dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:onClick="navigateToMv9"
-        android:scaleType="fitCenter"
-        android:src="@drawable/theupside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
-
-    <ImageView
-        android:id="@+id/imageView69"
-        android:layout_width="100dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:onClick="navigateToMv7"
-        android:scaleType="fitCenter"
-        android:src="@drawable/thepurge"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
-
-    <ImageView
-        android:id="@+id/imageView70"
-        android:layout_width="100dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:onClick="navigateToMv4"
-        android:scaleType="fitCenter"
-        android:src="@drawable/thelastofus"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.88"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
+        app:layout_constraintTop_toBottomOf="@+id/searchNameMovie"
+        app:layout_constraintVertical_bias="0.408" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

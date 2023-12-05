@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background color for the error image -->
+    <item android:drawable="@color/red" />
+
+    <!-- Icon for the error image (e.g., an "X" symbol) -->
+    <item
+        android:drawable="@android:color/white"
+        android:gravity="center"
+        android:width="64dp"
+        android:height="64dp" />
+</layer-list>

@@ -22,10 +22,9 @@
         android:onClick="navigateToHome" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/MovieName08"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SAUSAGE PARTY"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,7 +74,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.944"
-        app:srcCompat="@drawable/icon" />
+        app:srcCompat="@drawable/baseline_person_pin_24" />
 
     <LinearLayout
         android:id="@+id/linearLayout9"
@@ -96,16 +95,15 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView37"
+        android:id="@+id/addButton8"
         android:layout_width="37dp"
         android:layout_height="37dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.741"
-        app:srcCompat="@drawable/baseline_add_circle_outline_24"
-        android:onClick="navigateToHome" />
+        app:layout_constraintVertical_bias="0.787"
+        app:srcCompat="@drawable/baseline_add_circle_outline_24" />
 
     <ImageView
         android:id="@+id/imageView38"
@@ -171,11 +169,10 @@
         app:srcCompat="@drawable/baseline_star_outline_24" />
 
     <TextView
-        android:id="@+id/textView27"
+        android:id="@+id/MovieDesc08"
         android:layout_width="304dp"
         android:layout_height="230dp"
         android:layout_marginTop="20dp"
-        android:text="Frank (Seth Rogen) the sausage, Brenda (Kristen Wiig) the hot dog bun, Teresa Taco and Sammy Bagel Jr. (Edward Norton) can't wait to go home with a happy customer. Soon, their world comes crashing down as poor Frank learns the horrifying truth that he will eventually become a meal. After warning his pals about their similar fate, the panicked perishables devise a plan to escape from their human enemies."
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

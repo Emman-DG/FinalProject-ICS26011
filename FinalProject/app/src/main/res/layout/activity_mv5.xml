@@ -7,18 +7,28 @@
     android:background="#2E335A"
     tools:context=".Mv5">
 
+    <ImageView
+        android:id="@+id/addButton5"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.797"
+        app:srcCompat="@drawable/baseline_add_circle_outline_24" />
+
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/MovieName05"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="THE DARK KNIGHT"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.031"/>
+        app:layout_constraintVertical_bias="0.031" />
 
     <ImageButton
         android:id="@+id/imageButton5"
@@ -75,7 +85,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.944"
-        app:srcCompat="@drawable/icon" />
+        app:srcCompat="@drawable/baseline_person_pin_24" />
 
     <LinearLayout
         android:id="@+id/linearLayout6"
@@ -159,11 +169,10 @@
         app:srcCompat="@drawable/baseline_star_outline_24" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/MovieDesc05"
         android:layout_width="304dp"
         android:layout_height="260dp"
         android:layout_marginTop="20dp"
-        android:text="With the help of allies Lt. Jim Gordon (Gary Oldman) and DA Harvey Dent (Aaron Eckhart), Batman (Christian Bale) has been able to keep a tight lid on crime in Gotham City. But when a vile young criminal calling himself the Joker (Heath Ledger) suddenly throws the town into chaos, the caped Crusader begins to tread a fine line between heroism and vigilantism."
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

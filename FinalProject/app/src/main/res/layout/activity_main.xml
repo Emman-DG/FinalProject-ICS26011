@@ -116,5 +116,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.433" />
 
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="277dp"
+        android:layout_height="201dp"
+        android:fontFamily="@font/vintage"
+        android:text="MOVIE BOUNTY"
+        android:textColor="#FFFFFF"
+        android:textSize="68dp"
+        app:layout_constraintBottom_toTopOf="@+id/edtEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.579" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

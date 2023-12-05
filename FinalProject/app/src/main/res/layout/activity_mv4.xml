@@ -7,6 +7,17 @@
     android:background="#2E335A"
     tools:context=".Mv4">
 
+    <ImageView
+        android:id="@+id/addButton4"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.797"
+        app:srcCompat="@drawable/baseline_add_circle_outline_24" />
+
     <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="22dp"
@@ -22,17 +33,17 @@
         android:onClick="navigateToHome"/>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/MovieName04"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="THE LAST OF US"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.031"/>
+        app:layout_constraintVertical_bias="0.042" />
 
     <ImageButton
         android:id="@+id/imageButton25"
@@ -75,7 +86,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.944"
-        app:srcCompat="@drawable/icon" />
+        app:srcCompat="@drawable/baseline_person_pin_24" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -159,11 +170,10 @@
         app:srcCompat="@drawable/baseline_star_outline_24" />
 
     <TextView
-        android:id="@+id/textView23"
-        android:layout_width="304dp"
-        android:layout_height="171dp"
+        android:id="@+id/MovieDesc04"
+        android:layout_width="308dp"
+        android:layout_height="227dp"
         android:layout_marginTop="20dp"
-        android:text="Set in a post-apocalyptic 2023, The Last of Us presents a world that's been ravaged by a pandemic caused by a fungus called “cordyceps” (terrifyingly, a real fungus), which turns its hosts into violent zombie-like creatures whose only goal is to spread the infection."
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

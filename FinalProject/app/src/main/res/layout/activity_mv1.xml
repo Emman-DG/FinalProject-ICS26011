@@ -22,10 +22,10 @@
         android:onClick="navigateToHome" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/Movie01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OPPENHEIMER"
+        android:text=""
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,7 +75,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.944"
-        app:srcCompat="@drawable/icon" />
+        app:srcCompat="@drawable/baseline_person_pin_24" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -159,24 +159,24 @@
         app:srcCompat="@drawable/baseline_star_half_24" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/addButton"
         android:layout_width="37dp"
         android:layout_height="37dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.741"
-        app:srcCompat="@drawable/baseline_add_circle_outline_24"
-        android:onClick="navigateToHome" />
+        app:layout_constraintVertical_bias="0.797"
+        app:srcCompat="@drawable/baseline_add_circle_outline_24" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/MovieDesc01"
         android:layout_width="304dp"
         android:layout_height="230dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="172dp"
-        android:text="During World War II, Lt. Gen. Leslie Groves Jr. appoints physicist J. Robert Oppenheimer to work on the top-secret Manhattan Project. Oppenheimer and a team of scientists spend years developing and designing the atomic bomb. Their work comes to fruition on July 16, 1945, as they witness the world's first nuclear explosion, forever changing the course of history."
+        android:text=""
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

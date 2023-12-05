@@ -22,10 +22,9 @@
         android:onClick="navigateToHome" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/MovieName09"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="THE UPSIDE"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,7 +74,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.944"
-        app:srcCompat="@drawable/icon" />
+        app:srcCompat="@drawable/baseline_person_pin_24" />
 
     <LinearLayout
         android:id="@+id/linearLayout8"
@@ -96,16 +95,16 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView43"
+        android:id="@+id/addButton9"
         android:layout_width="37dp"
         android:layout_height="37dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.741"
-        app:srcCompat="@drawable/baseline_add_circle_outline_24"
-        android:onClick="navigateToHome"/>
+        app:layout_constraintVertical_bias="0.797"
+        app:srcCompat="@drawable/baseline_add_circle_outline_24" />
 
     <ImageView
         android:id="@+id/imageView44"
@@ -171,11 +170,10 @@
         app:srcCompat="@drawable/baseline_star_24" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/MovieDesc09"
         android:layout_width="304dp"
         android:layout_height="230dp"
         android:layout_marginTop="20dp"
-        android:text="Phillip is a wealthy quadriplegic who needs a caretaker to help him with his day-to-day routine in his New York penthouse. He decides to hire Dell, a struggling parolee who's trying to reconnect with his ex and his young son. Despite coming from two different worlds, an unlikely friendship starts to blossom as Dell and Phillip rediscover the joy of living life to the fullest."
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

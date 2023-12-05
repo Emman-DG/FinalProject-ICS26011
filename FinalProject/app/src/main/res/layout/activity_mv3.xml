@@ -7,6 +7,18 @@
     android:background="#2E335A"
     tools:context=".Mv3">
 
+    <ImageView
+        android:id="@+id/addButton3"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.797"
+        app:srcCompat="@drawable/baseline_add_circle_outline_24" />
+
     <ImageButton
         android:id="@+id/imageButton3"
         android:layout_width="22dp"
@@ -22,10 +34,9 @@
         android:onClick="navigateToHome" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/MovieName03"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="JOKER"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,7 +86,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.944"
-        app:srcCompat="@drawable/icon" />
+        app:srcCompat="@drawable/baseline_person_pin_24" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -159,11 +170,10 @@
         app:srcCompat="@drawable/baseline_star_24" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/MovieDesc03"
         android:layout_width="304dp"
         android:layout_height="240dp"
         android:layout_marginTop="20dp"
-        android:text="Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him. Isolated, bullied and disregarded by society, Fleck begins a slow descent into madness as he transforms into the criminal mastermind known as the Joker."
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

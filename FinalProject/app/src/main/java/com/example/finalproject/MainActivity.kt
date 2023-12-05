@@ -12,8 +12,10 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.constraintlayout.helper.widget.MotionEffect.TAG
 import com.google.firebase.Firebase
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
     lateinit var editEmail : EditText;
@@ -36,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        FirebaseApp.initializeApp(this)
 
         auth = Firebase.auth
         editEmail = findViewById(R.id.edtEmail)
@@ -59,6 +62,11 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Enter email", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                progressBar.visibility = View.GONE
+                Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             if (password.isEmpty()) {
                 progressBar.visibility = View.GONE
@@ -75,6 +83,11 @@ class MainActivity : AppCompatActivity() {
                             "Login Succesful",
                             Toast.LENGTH_SHORT,
                         ).show()
+                        val userId = auth.currentUser?.uid
+                        val database = FirebaseDatabase.getInstance()
+                        val userRef = database.reference.child("users").child(userId ?: "")
+                        userRef.child("email").setValue(email)
+
                         val intent = Intent(this, Profile::class.java);
                         startActivity(intent)
                         finish()

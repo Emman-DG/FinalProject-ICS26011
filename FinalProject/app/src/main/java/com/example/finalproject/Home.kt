@@ -3,12 +3,16 @@ package com.example.finalproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-
+import com.google.firebase.FirebaseApp
+import com.google.firebase.database.FirebaseDatabase
 class Home : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
     }
 
     fun navigateToMain(view: View) {
@@ -18,7 +22,8 @@ class Home : AppCompatActivity() {
 
     //Movie
     fun navigateToMv1(view: View) {
-        val intent = Intent(this, Mv1::class.java);
+        Log.d("HomeActivity", "Navigating to Mv1")
+        val intent = Intent(this, Mv1::class.java)
         startActivity(intent)
     }
     fun navigateToMv2(view: View) {
