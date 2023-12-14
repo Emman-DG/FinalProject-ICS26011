@@ -8,7 +8,7 @@
     tools:context=".Mv1">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/back"
         android:layout_width="22dp"
         android:layout_height="30dp"
         android:background="@null"
@@ -89,10 +89,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.197">
 
-        <VideoView
-            android:id="@+id/Mv1"
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/youtubePlayerView1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/MovieDescS" />
     </LinearLayout>
 
     <ImageView
@@ -171,7 +175,7 @@
         app:srcCompat="@drawable/baseline_add_circle_outline_24" />
 
     <TextView
-        android:id="@+id/MovieDesc01"
+        android:id="@+id/MovieDesc1"
         android:layout_width="304dp"
         android:layout_height="230dp"
         android:layout_marginTop="20dp"

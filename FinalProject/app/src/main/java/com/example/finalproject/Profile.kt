@@ -65,7 +65,10 @@ class Profile : AppCompatActivity() {
     }
 
     // Home
-
+    fun navigateToHome(view: View){
+        val intent = Intent(this,MainActivity::class.java)
+        startActivity(intent)
+    }
     // Search
     fun navigateToSearch(view: View) {
         val intent = Intent(this, Search::class.java)

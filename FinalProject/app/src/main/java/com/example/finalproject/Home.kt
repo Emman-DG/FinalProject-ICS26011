@@ -3,16 +3,68 @@ package com.example.finalproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
+import androidx.viewpager.widget.ViewPager
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.FirebaseDatabase
 class Home : AppCompatActivity() {
+
+    private val images = listOf(
+        R.drawable.air,
+        R.drawable.barbie,
+        R.drawable.dream,
+        R.drawable.extraction2,
+        R.drawable.insidiousmoreq,
+        R.drawable.johnwick,
+        R.drawable.joker,
+        R.drawable.oppenheimer,
+        R.drawable.sausageparty,
+        R.drawable.thedarkknight,
+        R.drawable.thedictator,
+        R.drawable.thelastofus,
+        R.drawable.thepurge,
+        R.drawable.theupside
+
+        // Add more image resources as needed
+    )
+
+    private lateinit var viewPager: ViewPager
+    private lateinit var imageAdapter: ImageAdapter
+
+    private val handler = Handler()
+    private val delay: Long = 3000 // 3 seconds delay between image changes
+    private var page = 0
+
+    private val timerRunnable = object : Runnable {
+        override fun run() {
+            if (page == images.size) {
+                page = 0
+            } else {
+                page++
+            }
+            viewPager.setCurrentItem(page, true)
+            handler.postDelayed(this, delay)
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        viewPager = findViewById(R.id.viewPager)
+        imageAdapter = ImageAdapter(this, images)
+        viewPager.adapter = imageAdapter
+
+        // Start auto-scrolling
+        handler.postDelayed(timerRunnable, delay)
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        // Stop the handler when the activity is destroyed
+        handler.removeCallbacks(timerRunnable)
     }
 
     fun navigateToMain(view: View) {
@@ -56,6 +108,30 @@ class Home : AppCompatActivity() {
     }
     fun navigateToMv9(view: View) {
         val intent = Intent(this, Mv9::class.java);
+        startActivity(intent)
+    }
+    fun navigateToMv10(view: View) {
+        val intent = Intent(this, Mv10::class.java);
+        startActivity(intent)
+    }
+    fun navigateToMv11(view: View) {
+        val intent = Intent(this, Mv11::class.java);
+        startActivity(intent)
+    }
+    fun navigateToMv12(view: View) {
+        val intent = Intent(this, Mv12::class.java);
+        startActivity(intent)
+    }
+    fun navigateToMv13(view: View) {
+        val intent = Intent(this, Mv13::class.java);
+        startActivity(intent)
+    }
+    fun navigateToMv14(view: View) {
+        val intent = Intent(this, Mv14::class.java);
+        startActivity(intent)
+    }
+    fun navigateToMv15(view: View) {
+        val intent = Intent(this, Mv15::class.java);
         startActivity(intent)
     }
 

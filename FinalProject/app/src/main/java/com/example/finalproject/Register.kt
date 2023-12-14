@@ -28,19 +28,19 @@ class Register : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     lateinit var progressBar: ProgressBar
     lateinit var BackBut: ImageButton
-    private var justRegistered = false
+
     private lateinit var database: FirebaseDatabase
     private lateinit var usersRef: DatabaseReference
 
     override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
-        if (currentUser != null && !justRegistered) {
+        if (currentUser != null) {
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
             finish()
         }
-        justRegistered = false // Reset the flag
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -128,7 +128,6 @@ class Register : AppCompatActivity() {
                     // Save the username in the database
                     saveUsernameInDatabase(username)
 
-                    justRegistered = true // Set the flag to true after successful registration
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()

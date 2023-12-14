@@ -8,21 +8,45 @@
     tools:context=".Home">
 
 
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="400dp"
+        android:layout_height="327dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtWatched"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txtWatched"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEW MOVIES ADDED:"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.949" />
+
     <LinearLayout
         android:id="@+id/linearLayout10"
-        android:layout_width="376dp"
-        android:layout_height="110dp"
+        android:layout_width="406dp"
+        android:layout_height="113dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.978">
+        app:layout_constraintVertical_bias="0.952">
 
         <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="409dp"
+            android:layout_height="match_parent"
             android:scrollbarSize="9dp">
 
             <LinearLayout
@@ -108,107 +132,160 @@
                     app:layout_constraintVertical_bias="0.716"
                     app:srcCompat="@drawable/thedarkknight" />
 
+                <ImageButton
+                    android:id="@+id/imgbtnMv10"
+                    android:layout_width="69dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="15dp"
+                    android:background="@null"
+                    android:onClick="navigateToMv10"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@+id/textView2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/imgbtnMv4"
+                    app:layout_constraintTop_toBottomOf="@+id/imgMv1"
+                    app:layout_constraintVertical_bias="0.716"
+                    app:srcCompat="@drawable/extraction2" />
+
+                <ImageButton
+                    android:id="@+id/imgbtnMv11"
+                    android:layout_width="69dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="15dp"
+                    android:background="@null"
+                    android:onClick="navigateToMv11"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@+id/textView2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/imgbtnMv4"
+                    app:layout_constraintTop_toBottomOf="@+id/imgMv1"
+                    app:layout_constraintVertical_bias="0.716"
+                    app:srcCompat="@drawable/dream" />
+
                 <!-- Add more items as needed -->
 
             </LinearLayout>
         </HorizontalScrollView>
     </LinearLayout>
 
-
-    <TextView
-        android:id="@+id/txtWatched"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NEW MOVIES ADDED:"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
+    <LinearLayout
+        android:layout_width="408dp"
+        android:layout_height="107dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnSearch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.074"
+        app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.942" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.727">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbarSize="9dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imgbtnMv9"
+                    android:layout_width="69dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="524dp"
+                    android:background="@null"
+                    android:onClick="navigateToMv9"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/theupside" />
+
+                <ImageButton
+                    android:id="@+id/imgbtnMv8"
+                    android:layout_width="69dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="568dp"
+                    android:background="@null"
+                    android:onClick="navigateToMv8"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/sausageparty" />
+
+                <ImageButton
+                    android:id="@+id/imgbtnMv6"
+                    android:layout_width="69dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="220dp"
+                    android:background="@null"
+                    android:onClick="navigateToMv6"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/thedictator" />
+
+
+                <ImageButton
+                    android:id="@+id/imgbtnMv12"
+                    android:layout_width="69dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="544dp"
+                    android:background="@null"
+                    android:onClick="navigateToMv12"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/johnwick" />
+
+                <ImageButton
+                    android:id="@+id/imgbtnMv13"
+                    android:layout_width="69dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="544dp"
+                    android:background="@null"
+                    android:onClick="navigateToMv13"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/air" />
+
+                <ImageButton
+                    android:id="@+id/imgbtnMv14"
+                    android:layout_width="69dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="544dp"
+                    android:background="@null"
+                    android:onClick="navigateToMv14"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/insidious" />
+
+                <ImageButton
+                    android:id="@+id/imgbtnMv15"
+                    android:layout_width="69dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="544dp"
+                    android:background="@null"
+                    android:onClick="navigateToMv15"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/barbie" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="252dp"
-        android:text="RECOMMENDED"
+        android:layout_marginBottom="204dp"
+        android:text="RECOMMENDED:"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imgbtnMv7"
-        android:layout_width="69dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:onClick="navigateToMv7"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnMv6"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.132"
-        app:srcCompat="@drawable/thepurge" />
-
-    <ImageButton
-        android:id="@+id/imgbtnMv9"
-        android:layout_width="69dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:onClick="navigateToMv9"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnMv8"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.132"
-        app:srcCompat="@drawable/theupside" />
-
-    <ImageButton
-        android:id="@+id/imgbtnMv6"
-        android:layout_width="69dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:onClick="navigateToMv6"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.132"
-        app:srcCompat="@drawable/thedictator" />
-
-    <ImageButton
-        android:id="@+id/imgbtnMv8"
-        android:layout_width="69dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:onClick="navigateToMv8"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.014"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnMv7"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.132"
-        app:srcCompat="@drawable/sausageparty" />
 
     <ImageButton
         android:id="@+id/btnIcon"

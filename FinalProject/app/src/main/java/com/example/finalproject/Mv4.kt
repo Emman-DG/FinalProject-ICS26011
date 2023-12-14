@@ -16,6 +16,10 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+import java.util.regex.Pattern
 
 class Mv4 : AppCompatActivity() {
 
@@ -24,32 +28,32 @@ class Mv4 : AppCompatActivity() {
     private lateinit var movieName: TextView
     private lateinit var movieDesc: TextView
     private lateinit var addToWatchList: ImageView
+    private lateinit var youTubePlayerView: YouTubePlayerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mv4)
 
+        // Initialization
         database = FirebaseDatabase.getInstance()
         userMoviesReference = database.reference.child("user_movies")
         movieName = findViewById(R.id.MovieName04)
         movieDesc = findViewById(R.id.MovieDesc04)
         addToWatchList = findViewById(R.id.addButton4)
+        youTubePlayerView = findViewById(R.id.youtubePlayerView)
 
         val movieId = "4" // ID of the second movie
         retrieveMovieDetails(movieId)
-        //Trailer
-        val videoView = findViewById<VideoView>(R.id.Mv4)
-        val packageName = "android.resource://" + getPackageName() + "/" + R.raw.thelastofus
-        val uri = Uri.parse(packageName)
-        videoView.setVideoURI(uri)
 
-        val mediaController = MediaController(this)
-        videoView.setMediaController(mediaController)
+        //Trailer
+
+
+
 
         addToWatchList.setOnClickListener {
             addMovieToWatchlist(movieId)
         }
     }
-
     private fun retrieveMovieDetails(movieId: String) {
         val movieReference = database.reference.child("movies").child(movieId)
         movieReference.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -59,6 +63,7 @@ class Mv4 : AppCompatActivity() {
                     // Display movie details
                     movieName.text = movie.name
                     movieDesc.text = movie.description
+                    loadYouTubeVideo(movie.trailer)
                 }
             }
 
@@ -67,6 +72,7 @@ class Mv4 : AppCompatActivity() {
             }
         })
     }
+
     private fun addMovieToWatchlist(movieId: String) {
         val currentUser = FirebaseAuth.getInstance().currentUser
         if (currentUser != null) {
@@ -111,5 +117,36 @@ class Mv4 : AppCompatActivity() {
     fun navigateToProfile(view: View) {
         val intent = Intent(this, Profile::class.java);
         startActivity(intent)
+    }
+    private fun loadYouTubeVideo(videoUrl: String?) {
+        // Extract video ID from the YouTube URL
+        val videoId = extractYouTubeVideoId(videoUrl)
+
+        // Initialize the YouTubePlayerView
+        youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+            override fun onReady(youTubePlayer: YouTubePlayer) {
+                // Check if videoId is not null before loading the video
+                if (!videoId.isNullOrBlank()) {
+                    // Load the video with autoplay set to true
+                    youTubePlayer.loadVideo(videoId, 0f)
+                } else {
+                    // Handle the case when videoId is null or blank
+                    // You can show an error message or take appropriate action
+                }
+            }
+        })
+    }
+
+    private fun extractYouTubeVideoId(videoUrl: String?): String? {
+        // Extract video ID from the YouTube URL
+        val pattern = "(?<=youtu.be/|watch\\?v=|/videos/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/|watch\\?v=|\\/videos\\/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/|watch\\?v=|\\/videos\\/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/)\\w+"
+        val compiledPattern = Pattern.compile(pattern)
+        val matcher = compiledPattern.matcher(videoUrl.orEmpty())
+
+        return if (matcher.find()) {
+            matcher.group()
+        } else {
+            null
+        }
     }
 }

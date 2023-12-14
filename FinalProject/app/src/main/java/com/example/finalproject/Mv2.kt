@@ -1,22 +1,23 @@
 package com.example.finalproject
 
 import android.content.Intent
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import android.widget.MediaController
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.VideoView
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.bumptech.glide.Glide
-import com.google.firebase.auth.FirebaseAuth
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+import java.util.regex.Pattern
+
 
 class Mv2 : AppCompatActivity() {
     private lateinit var database: FirebaseDatabase
@@ -24,6 +25,7 @@ class Mv2 : AppCompatActivity() {
     private lateinit var movieName: TextView
     private lateinit var movieDesc: TextView
     private lateinit var addToWatchList: ImageView
+    private lateinit var youTubePlayerView: YouTubePlayerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,21 +34,18 @@ class Mv2 : AppCompatActivity() {
         // Initialization
         database = FirebaseDatabase.getInstance()
         userMoviesReference = database.reference.child("user_movies")
-        movieName = findViewById(R.id.Movie02)
-        movieDesc = findViewById(R.id.MovieDesc02)
-        addToWatchList = findViewById(R.id.addButton2)
+        movieName = findViewById(R.id.MovieName14)
+        movieDesc = findViewById(R.id.MovieDesc14)
+        addToWatchList = findViewById(R.id.addButton15)
+        youTubePlayerView = findViewById(R.id.youtubePlayerView2)
 
         val movieId = "2" // ID of the second movie
         retrieveMovieDetails(movieId)
 
         //Trailer
-        val videoView = findViewById<VideoView>(R.id.Mv2)
-        val packageName = "android.resource://" + getPackageName() + "/" + R.raw.deadpool
-        val uri = Uri.parse(packageName)
-        videoView.setVideoURI(uri)
 
-        val mediaController = MediaController(this)
-        videoView.setMediaController(mediaController)
+
+
 
         addToWatchList.setOnClickListener {
             addMovieToWatchlist(movieId)
@@ -61,6 +60,7 @@ class Mv2 : AppCompatActivity() {
                     // Display movie details
                     movieName.text = movie.name
                     movieDesc.text = movie.description
+                    loadYouTubeVideo(movie.trailer)
                 }
             }
 
@@ -114,5 +114,36 @@ class Mv2 : AppCompatActivity() {
     fun navigateToProfile(view: View) {
         val intent = Intent(this, Profile::class.java);
         startActivity(intent)
+    }
+    private fun loadYouTubeVideo(videoUrl: String?) {
+        // Extract video ID from the YouTube URL
+        val videoId = extractYouTubeVideoId(videoUrl)
+
+        // Initialize the YouTubePlayerView
+        youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+            override fun onReady(youTubePlayer: YouTubePlayer) {
+                // Check if videoId is not null before loading the video
+                if (!videoId.isNullOrBlank()) {
+                    // Load the video with autoplay set to true
+                    youTubePlayer.loadVideo(videoId, 0f)
+                } else {
+                    // Handle the case when videoId is null or blank
+                    // You can show an error message or take appropriate action
+                }
+            }
+        })
+    }
+
+    private fun extractYouTubeVideoId(videoUrl: String?): String? {
+        // Extract video ID from the YouTube URL
+        val pattern = "(?<=youtu.be/|watch\\?v=|/videos/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/|watch\\?v=|\\/videos\\/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/|watch\\?v=|\\/videos\\/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/)\\w+"
+        val compiledPattern = Pattern.compile(pattern)
+        val matcher = compiledPattern.matcher(videoUrl.orEmpty())
+
+        return if (matcher.find()) {
+            matcher.group()
+        } else {
+            null
+        }
     }
 }

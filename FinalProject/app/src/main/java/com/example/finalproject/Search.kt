@@ -1,66 +1,113 @@
 package com.example.finalproject
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.text.Editable
-import android.text.TextWatcher
-import android.widget.EditText
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.*
 
 class Search : AppCompatActivity() {
 
-    private lateinit var searchEditText: EditText
-    private lateinit var searchResultsRecyclerView: RecyclerView
-    private lateinit var searchResultsAdapter: SearchResultsAdapter
+    private lateinit var searchView: SearchView
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var searchAdapter: SearchAdapter
+
+    private val movies: MutableList<Movie> = mutableListOf()
+
+    private val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().getReference("movies")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        // Initialize views
-        searchEditText = findViewById(R.id.searchNameMovie)
-        searchResultsRecyclerView = findViewById(R.id.searchRecyclerView)
+        // Initialize UI components
+        searchView = findViewById(R.id.searchView)
+        recyclerView = findViewById(R.id.searchRecyclerView)
 
-        // Initialize RecyclerView and SearchResultsAdapter
-        searchResultsAdapter = SearchResultsAdapter()
-        searchResultsRecyclerView.layoutManager = LinearLayoutManager(this)
-        searchResultsRecyclerView.adapter = searchResultsAdapter
+        // Initialize RecyclerView and adapter
+        searchAdapter = SearchAdapter(this, movies) { selectedMovie ->
+            // Handle item click, open MovieDetailsActivity, and pass the selected movie
+            val intent = Intent(this, MovieDetailsActivity::class.java)
+            intent.putExtra("movie", selectedMovie)
+            startActivity(intent)
+        }
 
-        // Add a TextWatcher to the searchEditText to perform search on text changes
-        searchEditText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Not needed
+        // Set up the RecyclerView with a GridLayoutManager (2 movies per row)
+        val layoutManager = GridLayoutManager(this, 2, RecyclerView.VERTICAL, false)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = searchAdapter
+
+        // Set up Firebase Database query to fetch the list of movies
+        databaseReference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // Convert the dataSnapshot to a list of Movie objects
+                val moviesList = dataSnapshot.children.map { it.getValue(Movie::class.java)!! }
+
+                // Update the RecyclerView adapter with the list of movies
+                searchAdapter.updateMovies(moviesList)
+
+                // Update the local movies list as well
+                movies.clear()
+                movies.addAll(moviesList)
             }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // Perform search when text changes
-                searchResultsAdapter.search(s.toString())
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                // Not needed
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Handle error
             }
         })
-    }
 
-    // Home
+        // Set up search functionality
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // Handle search query submission if needed
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                // Log the search query
+                Log.d("SearchActivity", "Search Query: $newText")
+
+                // Log the list of movies
+                Log.d("SearchActivity", "All Movies: $movies")
+
+                // Filter the list of movies based on user input, using case-insensitive comparison
+                val filteredMovies = movies.filter {
+                    val movieName = it.name.orEmpty()
+                    val isMatch = movieName.contains(newText.orEmpty(), ignoreCase = true)
+
+                    // Log the movie name and whether it's a match
+                    Log.d("SearchActivity", "Movie: $movieName, Is Match: $isMatch")
+
+                    isMatch
+                }
+
+                // Log the filtered movies
+                Log.d("SearchActivity", "Filtered Movies: $filteredMovies")
+
+                // Update the RecyclerView adapter with the filtered list
+                searchAdapter.updateMovies(filteredMovies)
+
+                return true
+            }
+
+        })
+    }
     fun navigateToHome(view: View) {
-        val intent = Intent(this, Home::class.java)
+        val intent = Intent(this, Home::class.java);
         startActivity(intent)
     }
-
-    // Search
+    //Search
     fun navigateToSearch(view: View) {
-        val intent = Intent(this, Search::class.java)
+        val intent = Intent(this, Search::class.java);
         startActivity(intent)
     }
-
-    // Profile
+    //Profile
     fun navigateToProfile(view: View) {
-        val intent = Intent(this, Profile::class.java)
+        val intent = Intent(this, Profile::class.java);
         startActivity(intent)
     }
 }
