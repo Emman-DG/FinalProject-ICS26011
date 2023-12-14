@@ -27,14 +27,14 @@ class Home : AppCompatActivity() {
         R.drawable.thepurge,
         R.drawable.theupside
 
-        // Add more image resources as needed
+
     )
 
     private lateinit var viewPager: ViewPager
     private lateinit var imageAdapter: ImageAdapter
 
     private val handler = Handler()
-    private val delay: Long = 3000 // 3 seconds delay between image changes
+    private val delay: Long = 3000
     private var page = 0
 
     private val timerRunnable = object : Runnable {
@@ -58,12 +58,12 @@ class Home : AppCompatActivity() {
         imageAdapter = ImageAdapter(this, images)
         viewPager.adapter = imageAdapter
 
-        // Start auto-scrolling
+
         handler.postDelayed(timerRunnable, delay)
     }
     override fun onDestroy() {
         super.onDestroy()
-        // Stop the handler when the activity is destroyed
+
         handler.removeCallbacks(timerRunnable)
     }
 

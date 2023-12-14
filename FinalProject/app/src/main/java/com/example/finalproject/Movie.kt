@@ -9,7 +9,7 @@ class Movie : Serializable {
     val trailer: String? = null
 
     constructor() {
-        // Default constructor required for Firebase
+
     }
 
     constructor(description: String?, image: String?, name: String?) {
@@ -18,7 +18,6 @@ class Movie : Serializable {
         this.name = name
     }
 
-    // Use the name as the unique identifier
     fun getMovieId(): String {
         return name.orEmpty()
     }

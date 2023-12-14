@@ -25,6 +25,7 @@
         android:id="@+id/MovieName10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"

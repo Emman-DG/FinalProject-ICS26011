@@ -1,6 +1,6 @@
 package com.example.finalproject
 
-// ImageAdapter.kt
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View

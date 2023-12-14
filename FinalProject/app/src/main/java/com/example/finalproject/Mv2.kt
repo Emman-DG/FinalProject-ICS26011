@@ -30,8 +30,6 @@ class Mv2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mv2)
-
-        // Initialization
         database = FirebaseDatabase.getInstance()
         userMoviesReference = database.reference.child("user_movies")
         movieName = findViewById(R.id.MovieName14)
@@ -41,10 +39,6 @@ class Mv2 : AppCompatActivity() {
 
         val movieId = "2" // ID of the second movie
         retrieveMovieDetails(movieId)
-
-        //Trailer
-
-
 
 
         addToWatchList.setOnClickListener {
@@ -57,7 +51,6 @@ class Mv2 : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val movie = snapshot.getValue(Movie::class.java)
                 if (movie != null) {
-                    // Display movie details
                     movieName.text = movie.name
                     movieDesc.text = movie.description
                     loadYouTubeVideo(movie.trailer)
@@ -65,7 +58,6 @@ class Mv2 : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle error
             }
         })
     }
@@ -76,7 +68,7 @@ class Mv2 : AppCompatActivity() {
             val userId = currentUser.uid
             val userMovieRef = userMoviesReference.child(userId).child(movieId)
 
-            // Check if the movie is already in the user's watchlist
+
             userMovieRef.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {

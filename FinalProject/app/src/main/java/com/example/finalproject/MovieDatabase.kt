@@ -8,8 +8,6 @@ class MovieDatabase {
     private val userId: String = FirebaseAuth.getInstance().currentUser?.uid ?: ""
     private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private val moviesRef: DatabaseReference = database.reference.child("movies")
-
-    // Retrieve a specific movie based on its ID
     fun getMovie(movieId: String, callback: (Movie?) -> Unit) {
         moviesRef.child(movieId).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

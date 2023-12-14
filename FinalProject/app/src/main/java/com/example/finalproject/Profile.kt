@@ -44,16 +44,12 @@ class Profile : AppCompatActivity() {
             finish()
         }
 
-        // Initialize usernameTextView
         usernameTextView = findViewById(R.id.usernameTextView)
-
-        // Initialize RecyclerView and WatchlistAdapter
         recyclerView = findViewById(R.id.watchlistRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         watchlistAdapter = WatchlistAdapter { item -> removeMovieFromWatchlist(item) }
         recyclerView.adapter = watchlistAdapter
 
-        // Retrieve and display the username and watchlist
         retrieveAndDisplayUsername()
         retrieveAndDisplayWatchlist()
     }
@@ -141,23 +137,14 @@ class Profile : AppCompatActivity() {
     private fun removeMovieFromWatchlist(item: WatchlistItem) {
         val movieId = item.movieId
 
-        // Get the current user ID
         val userId = FirebaseAuth.getInstance().currentUser?.uid
-
-        // Check if the user ID is not null
         if (userId != null) {
-            // Reference to the user's movies node
             val userMoviesRef = database.reference.child("user_movies").child(userId)
-
-            // Remove the movie with the specified ID from the watchlist
             userMoviesRef.child(movieId).removeValue()
-
-            // Notify the adapter about the removal
             watchlistAdapter.notifyDataSetChanged()
 
             Toast.makeText(this, "Removed from Watchlist", Toast.LENGTH_SHORT).show()
         } else {
-            // Handle the case where the user is not authenticated
             Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show()
         }
     }

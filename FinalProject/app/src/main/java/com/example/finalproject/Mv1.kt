@@ -32,7 +32,6 @@ class Mv1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mv1)
 
-        // Initialization
         database = FirebaseDatabase.getInstance()
         userMoviesReference = database.reference.child("user_movies")
         movieName = findViewById(R.id.Movie01)
@@ -44,7 +43,6 @@ class Mv1 : AppCompatActivity() {
         val movieId = "1" // ID of the first movie
         retrieveMovieDetails(movieId)
 
-        // Set up the addButton click listener
         addToWatchList.setOnClickListener {
             addMovieToWatchlist(movieId)
         }
@@ -56,17 +54,14 @@ class Mv1 : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val movie = snapshot.getValue(Movie::class.java)
                 if (movie != null) {
-                    // Display movie details
                     movieName.text = movie.name
                     movieDesc.text = movie.description
 
-                    // Load YouTube video
                     loadYouTubeVideo(movie.trailer)
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle error
             }
         })
     }
@@ -77,27 +72,22 @@ class Mv1 : AppCompatActivity() {
             val userId = currentUser.uid
             val userMovieRef = userMoviesReference.child(userId).child(movieId)
 
-            // Check if the movie is already in the user's watchlist
             userMovieRef.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
-                        // Movie is already in the watchlist
                         Toast.makeText(this@Mv1, "Movie already added to watchlist", Toast.LENGTH_SHORT).show()
                     } else {
-                        // Movie is not in the watchlist, add it
                         userMovieRef.setValue(true)
                         Toast.makeText(this@Mv1, "Added to Watchlist", Toast.LENGTH_SHORT).show()
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    // Handle error
                     Toast.makeText(this@Mv1, "Error checking watchlist", Toast.LENGTH_SHORT).show()
                 }
             })
 
         } else {
-            // Handle the case where the user is not authenticated
             Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show()
         }
     }
@@ -121,26 +111,18 @@ class Mv1 : AppCompatActivity() {
     }
 
     private fun loadYouTubeVideo(videoUrl: String?) {
-        // Extract video ID from the YouTube URL
         val videoId = extractYouTubeVideoId(videoUrl)
-
-        // Initialize the YouTubePlayerView
         youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
-                // Check if videoId is not null before loading the video
                 if (!videoId.isNullOrBlank()) {
-                    // Load the video with autoplay set to true
                     youTubePlayer.loadVideo(videoId, 0f)
                 } else {
-                    // Handle the case when videoId is null or blank
-                    // You can show an error message or take appropriate action
                 }
             }
         })
     }
 
     private fun extractYouTubeVideoId(videoUrl: String?): String? {
-        // Extract video ID from the YouTube URL
         val pattern = "(?<=youtu.be/|watch\\?v=|/videos/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/|watch\\?v=|\\/videos\\/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/|watch\\?v=|\\/videos\\/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/)\\w+"
         val compiledPattern = Pattern.compile(pattern)
         val matcher = compiledPattern.matcher(videoUrl.orEmpty())
